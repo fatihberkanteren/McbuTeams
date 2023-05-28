@@ -1,16 +1,24 @@
 package ProjectGUI;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
-
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -25,6 +33,11 @@ public class EventsPage extends javax.swing.JFrame {
     CreateEvent createEvent = new CreateEvent();
     DefaultTableModel defaultTableModel;
     ArrayList<String> arrayList;
+    EditPage editPage;
+    Connection connection;
+    PreparedStatement preparedStatement;
+    ResultSet resultSet;
+    Color color = new Color(0, 0, 0, 0);
 
     public EventsPage() {
         initComponents();
@@ -41,8 +54,10 @@ public class EventsPage extends javax.swing.JFrame {
         txt_islemZamani.setEditable(false);
         txt_olayTanimlamasi.setEditable(false);
         txt_olayTipi.setEditable(false);
-        txtarea_olayAciklama.setEditable(false);
-
+        jTextArea1.setEditable(false);
+        btn_instagram.setBackground(color);
+        btn_linkedin.setBackground(color);
+        btn_github.setBackground(color);
     }
 
     @SuppressWarnings("unchecked")
@@ -54,30 +69,43 @@ public class EventsPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btn_ekilnlikolustur = new javax.swing.JButton();
         btn_duzenle = new javax.swing.JButton();
-        btn_duzenle1 = new javax.swing.JButton();
+        btn_kaldir = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        btn_instagram = new javax.swing.JButton();
+        btn_linkedin = new javax.swing.JButton();
+        btn_github = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbl_events = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_aramaCubugu = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txt_olayTipi = new javax.swing.JTextField();
         txt_baslik = new javax.swing.JTextField();
         txt_islemZamani = new javax.swing.JTextField();
         txt_baslamaZamani = new javax.swing.JTextField();
         txt_olayTanimlamasi = new javax.swing.JTextField();
-        txt_olayTipi = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtarea_olayAciklama = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tbl_events = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 810));
-        setPreferredSize(new java.awt.Dimension(1310, 810));
+        setPreferredSize(new java.awt.Dimension(1360, 900));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("McbuTeams");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -108,113 +136,107 @@ public class EventsPage extends javax.swing.JFrame {
             }
         });
 
-        btn_duzenle1.setBackground(new java.awt.Color(255, 255, 255));
-        btn_duzenle1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
-        btn_duzenle1.setForeground(new java.awt.Color(0, 0, 0));
-        btn_duzenle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/garbage.png"))); // NOI18N
-        btn_duzenle1.setText("Kaldır");
-        btn_duzenle1.setBorder(null);
-        btn_duzenle1.addActionListener(new java.awt.event.ActionListener() {
+        btn_kaldir.setBackground(new java.awt.Color(255, 255, 255));
+        btn_kaldir.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        btn_kaldir.setForeground(new java.awt.Color(0, 0, 0));
+        btn_kaldir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/garbage.png"))); // NOI18N
+        btn_kaldir.setText("Kaldır");
+        btn_kaldir.setBorder(null);
+        btn_kaldir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_duzenle1ActionPerformed(evt);
+                btn_kaldirActionPerformed(evt);
             }
         });
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/4933947.jpg"))); // NOI18N
+
+        btn_instagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/instagram.png"))); // NOI18N
+        btn_instagram.setOpaque(false);
+        btn_instagram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_instagramActionPerformed(evt);
+            }
+        });
+
+        btn_linkedin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/linkedin.png"))); // NOI18N
+        btn_linkedin.setOpaque(false);
+        btn_linkedin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_linkedinActionPerformed(evt);
+            }
+        });
+
+        btn_github.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/github.png"))); // NOI18N
+        btn_github.setOpaque(false);
+        btn_github.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_githubActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("<html>\nSosyal Medya İkonlarına Tıkladıktan Sonra <br> \nBir Süre Bekleyiniz.");
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_duzenle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_ekilnlikolustur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_kaldir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel2Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(btn_instagram, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_linkedin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_github, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addGap(83, 83, 83)
                         .addComponent(jLabel6)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_duzenle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_ekilnlikolustur, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_duzenle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(123, 123, 123)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addGap(87, 87, 87)
+                .addGap(120, 120, 120)
                 .addComponent(btn_ekilnlikolustur, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btn_duzenle, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_kaldir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_duzenle1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(348, Short.MAX_VALUE))
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_instagram)
+                    .addComponent(btn_linkedin)
+                    .addComponent(btn_github))
+                .addContainerGap())
         );
 
-        getContentPane().add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 820));
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1010, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Etkinlikler");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 227, 157, 42));
-
-        txt_baslik.setBackground(new java.awt.Color(255, 255, 255));
-        txt_baslik.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_baslik.setForeground(new java.awt.Color(0, 0, 0));
-        txt_baslik.setOpaque(false);
-        jPanel1.add(txt_baslik, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 216, 31));
-
-        txt_islemZamani.setBackground(new java.awt.Color(255, 255, 255));
-        txt_islemZamani.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_islemZamani.setForeground(new java.awt.Color(0, 0, 0));
-        txt_islemZamani.setOpaque(false);
-        jPanel1.add(txt_islemZamani, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 12, 216, 31));
-
-        txt_baslamaZamani.setBackground(new java.awt.Color(255, 255, 255));
-        txt_baslamaZamani.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_baslamaZamani.setForeground(new java.awt.Color(0, 0, 0));
-        txt_baslamaZamani.setOpaque(false);
-        jPanel1.add(txt_baslamaZamani, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 12, 216, 31));
-
-        txt_olayTanimlamasi.setBackground(new java.awt.Color(255, 255, 255));
-        txt_olayTanimlamasi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_olayTanimlamasi.setForeground(new java.awt.Color(0, 0, 0));
-        txt_olayTanimlamasi.setOpaque(false);
-        jPanel1.add(txt_olayTanimlamasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 12, 216, 31));
-
-        txt_olayTipi.setBackground(new java.awt.Color(255, 255, 255));
-        txt_olayTipi.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_olayTipi.setForeground(new java.awt.Color(0, 0, 0));
-        txt_olayTipi.setOpaque(false);
-        jPanel1.add(txt_olayTipi, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 61, 216, 31));
-
-        txtarea_olayAciklama.setBackground(new java.awt.Color(255, 255, 255));
-        txtarea_olayAciklama.setColumns(20);
-        txtarea_olayAciklama.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        txtarea_olayAciklama.setForeground(new java.awt.Color(0, 0, 0));
-        txtarea_olayAciklama.setRows(5);
-        txtarea_olayAciklama.setOpaque(false);
-        jScrollPane1.setViewportView(txtarea_olayAciklama);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 110, 972, 99));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 227, 625, 35));
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Yenile");
-        jButton1.setBorder(null);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 227, 159, 35));
-
-        kGradientPanel1.setkEndColor(new java.awt.Color(0, 147, 233));
+        kGradientPanel1.setkEndColor(new java.awt.Color(159, 172, 230));
         kGradientPanel1.setkStartColor(new java.awt.Color(128, 208, 199));
 
         tbl_events.setModel(new javax.swing.table.DefaultTableModel(
@@ -248,26 +270,215 @@ public class EventsPage extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tbl_events);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Etkinlikler");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search.png"))); // NOI18N
+
+        txt_aramaCubugu.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_aramaCubugu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        txt_aramaCubugu.setOpaque(false);
+        txt_aramaCubugu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_aramaCubuguKeyReleased(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Yenile");
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1016, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_aramaCubugu, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2))
+                    .addComponent(txt_aramaCubugu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 980, 570));
+        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 1040, 550));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 1110, 810));
+        kGradientPanel3.setkEndColor(new java.awt.Color(116, 235, 213));
+        kGradientPanel3.setkStartColor(new java.awt.Color(159, 172, 230));
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Etkinlik Detayları");
+
+        txt_olayTipi.setBackground(new java.awt.Color(255, 255, 255));
+        txt_olayTipi.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        txt_olayTipi.setForeground(new java.awt.Color(0, 0, 0));
+        txt_olayTipi.setOpaque(false);
+
+        txt_baslik.setBackground(new java.awt.Color(255, 255, 255));
+        txt_baslik.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        txt_baslik.setForeground(new java.awt.Color(0, 0, 0));
+        txt_baslik.setOpaque(false);
+
+        txt_islemZamani.setBackground(new java.awt.Color(255, 255, 255));
+        txt_islemZamani.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        txt_islemZamani.setForeground(new java.awt.Color(0, 0, 0));
+        txt_islemZamani.setOpaque(false);
+
+        txt_baslamaZamani.setBackground(new java.awt.Color(255, 255, 255));
+        txt_baslamaZamani.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        txt_baslamaZamani.setForeground(new java.awt.Color(0, 0, 0));
+        txt_baslamaZamani.setOpaque(false);
+
+        txt_olayTanimlamasi.setBackground(new java.awt.Color(255, 255, 255));
+        txt_olayTanimlamasi.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        txt_olayTanimlamasi.setForeground(new java.awt.Color(0, 0, 0));
+        txt_olayTanimlamasi.setOpaque(false);
+
+        jLabel7.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Başlık");
+
+        jLabel8.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("İşlem Zamanı");
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Başlama Zamanı");
+
+        jLabel10.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Olay Tanımlaması");
+
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Olay Tipi");
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Açıklama");
+
+        jTextArea1.setColumns(10);
+        jTextArea1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jTextArea1.setRows(3);
+        jTextArea1.setTabSize(5);
+        jTextArea1.setOpaque(false);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(txt_olayTipi, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_baslamaZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_baslik, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel10))
+                                .addGap(18, 18, 18)
+                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_islemZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel11))
+                                .addGap(18, 18, 18)
+                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel9)
+                                    .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 332, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_islemZamani)
+                            .addComponent(txt_baslik))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
+                .addGap(8, 8, 8)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_olayTipi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_baslamaZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
+        );
+
+        jPanel1.add(kGradientPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1040, 240));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         getAccessibleContext().setAccessibleDescription("");
 
@@ -330,6 +541,25 @@ public class EventsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ekilnlikolusturActionPerformed
 
     private void btn_duzenleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_duzenleActionPerformed
+        editPage = new EditPage();
+        int selectedRow = tbl_events.getSelectedRow();
+        arrayList = new ArrayList<>();
+        if (selectedRow != -1) {
+            editPage.setVisible(true);
+            int columnCount = tbl_events.getColumnCount();
+            for (int i = 0; i < columnCount; i++) {
+                Object value = tbl_events.getValueAt(selectedRow, i);
+                arrayList.add(String.valueOf(value));
+            }
+            editPage.setİnfo(arrayList.get(0), arrayList.get(4), arrayList.get(5));
+        } else {
+            JOptionPane.showMessageDialog(null, "Düzenlemek istediğiniz etkinliği seçiniz!");
+        }
+
+
+    }//GEN-LAST:event_btn_duzenleActionPerformed
+
+    private void btn_kaldirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kaldirActionPerformed
         int selectedRow = tbl_events.getSelectedRow();
         arrayList = new ArrayList<>();
         if (selectedRow != -1) {
@@ -338,16 +568,35 @@ public class EventsPage extends javax.swing.JFrame {
                 Object value = tbl_events.getValueAt(selectedRow, i);
                 arrayList.add(String.valueOf(value));
             }
+            try {
+                connection = DbHelper.dbEvents();
+                String sql = "DELETE FROM Events WHERE baslik = ? AND islemZamani = ? AND baslamaZamani = ? "
+                        + "AND olayTanimlamasi = ? AND olayTipi = ? AND olayAciklamasi = ?";
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, arrayList.get(0));
+                preparedStatement.setString(2, arrayList.get(1));
+                preparedStatement.setString(3, arrayList.get(2));
+                preparedStatement.setString(4, arrayList.get(3));
+                preparedStatement.setString(5, arrayList.get(4));
+                preparedStatement.setString(6, arrayList.get(5));
+                preparedStatement.execute();
+
+            } catch (SQLException e) {
+                System.out.println("Hata Kodu : " + e.getErrorCode());
+                System.out.println("Hata Mesajı : " + e.getMessage());
+            } finally {
+                try {
+                    connection.close();
+                    System.out.println("Başarılı");
+                } catch (SQLException e) {
+                    System.out.println("Hata Kodu : " + e.getErrorCode());
+                    System.out.println("Hata Mesajı : " + e.getMessage());
+                }
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Düzenlemek istediğiniz etkinliği seçiniz!");
         }
-
-
-    }//GEN-LAST:event_btn_duzenleActionPerformed
-
-    private void btn_duzenle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_duzenle1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_duzenle1ActionPerformed
+    }//GEN-LAST:event_btn_kaldirActionPerformed
 
     private void tbl_eventsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_eventsMouseClicked
         int selectedRow = tbl_events.getSelectedRow();
@@ -366,8 +615,48 @@ public class EventsPage extends javax.swing.JFrame {
         txt_baslamaZamani.setText(arrayList.get(2));
         txt_olayTanimlamasi.setText(arrayList.get(3));
         txt_olayTipi.setText(arrayList.get(4));
-        txtarea_olayAciklama.setText(arrayList.get(5));
+        jTextArea1.setText(arrayList.get(5));
     }//GEN-LAST:event_tbl_eventsMouseClicked
+
+    private void txt_aramaCubuguKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_aramaCubuguKeyReleased
+        String aranan = txt_aramaCubugu.getText();
+        TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<>(defaultTableModel);
+        tbl_events.setRowSorter(rowSorter);
+        rowSorter.setRowFilter(RowFilter.regexFilter(aranan));
+    }//GEN-LAST:event_txt_aramaCubuguKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            getEvents();
+            setEvents();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventsPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_instagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_instagramActionPerformed
+        String instagramProfileUrl = "https://www.instagram.com/fatihberkant";
+        try {
+            Desktop.getDesktop().browse(new URI(instagramProfileUrl));
+        } catch (IOException | URISyntaxException e) {
+        }
+    }//GEN-LAST:event_btn_instagramActionPerformed
+
+    private void btn_githubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_githubActionPerformed
+        String githubProfileUrl = "https://github.com/fatihberkanteren";
+        try {
+            Desktop.getDesktop().browse(new URI(githubProfileUrl));
+        } catch (IOException | URISyntaxException e) {
+        }
+    }//GEN-LAST:event_btn_githubActionPerformed
+
+    private void btn_linkedinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_linkedinActionPerformed
+        String linkedinProfileUrl = "https://www.linkedin.com/in/fatihberkanteren";
+        try {
+            Desktop.getDesktop().browse(new URI(linkedinProfileUrl));
+        } catch (IOException | URISyntaxException e) {
+        }
+    }//GEN-LAST:event_btn_linkedinActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,24 +695,38 @@ public class EventsPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_duzenle;
-    private javax.swing.JButton btn_duzenle1;
     private javax.swing.JButton btn_ekilnlikolustur;
+    private javax.swing.JButton btn_github;
+    private javax.swing.JButton btn_instagram;
+    private javax.swing.JButton btn_kaldir;
+    private javax.swing.JButton btn_linkedin;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextArea1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JTable tbl_events;
+    private javax.swing.JTextField txt_aramaCubugu;
     private javax.swing.JTextField txt_baslamaZamani;
     private javax.swing.JTextField txt_baslik;
     private javax.swing.JTextField txt_islemZamani;
     private javax.swing.JTextField txt_olayTanimlamasi;
     private javax.swing.JTextField txt_olayTipi;
-    private javax.swing.JTextArea txtarea_olayAciklama;
     // End of variables declaration//GEN-END:variables
 }

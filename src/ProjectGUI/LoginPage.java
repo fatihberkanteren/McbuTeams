@@ -240,7 +240,6 @@ public class LoginPage extends javax.swing.JFrame {
         register.setVisible(true);
     }//GEN-LAST:event_btn_kayitOlActionPerformed
 
-
     
     private void btn_girisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_girisActionPerformed
         try {
