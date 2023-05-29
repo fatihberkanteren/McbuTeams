@@ -17,7 +17,7 @@
 
 # <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="320" height="180">
 
-  #PROGRAM FLOW
+  # PROGRAM FLOW
   <li>The program is run and the login screen opens.</li>
   <li>If you are not registered in the system, the user is directed to the registration screen by clicking the register button on the login screen.</li>
   <li>The system is registered with name, surname, TR ID number, user name, e-mail and password.</li>
