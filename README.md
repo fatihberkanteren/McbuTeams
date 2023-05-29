@@ -9,13 +9,13 @@
 <li> Sisteme girilen kullanıcı bilgileri SQL veri tabanında tutulur ve saklanır. </li>
 <li> Kaydı bulunan veya kayıt işlemini gerçekleştiren kullanıcılar giriş ekranında kullanıcı adını ve şifresini girerek takvim ekranınan yönlendirilir. </li>
 <li> Kullanıcılar takvim ekranında istedikleri tarihe olay ekleyebilir eklenen olayları silebilir veya değiştirebilir. </li>
-<li> Eklenen olay tarihi geldiğinde ekranda uyarı olarak bildirir.  </li>
+<li> Eklenen olay tarihi geldiğinde ekranda uyarı olarak bildirir.  </li><br><br>
 
 
  <b>Kullanıcı Kayıt Ekranı</b><br>
-<li>Şifreyi Kontrol Etmek İçin Kırmızı Okla Gösterilen Göster Butonu Kullanılır.<br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br>
+<li>Şifreyi Kontrol Etmek İçin Kırmızı Okla Gösterilen Göster Butonu Kullanılır.<br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br><br>
  <b>Kullanıcı Giriş Ekranı</b><br>
- <li>Şifreyi Kontrol Etmek ve Sisteme Kayıt Olmak İçin Kırmızı Okla Gösterilen Göster Butonlar Kullanılır.<br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200">
+ <li>Şifreyi Kontrol Etmek ve Sisteme Kayıt Olmak İçin Kırmızı Okla Gösterilen Göster Butonlar Kullanılır.<br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200"><br><br>
 
   # PROGRAM FLOW
   <li>The program is run and the login screen opens.</li>
