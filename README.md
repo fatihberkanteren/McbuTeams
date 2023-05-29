@@ -34,5 +34,6 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
   <li>Users who have registered or who have registered are directed to the calendar screen by entering their username and password on the login screen.</li>
   <li>Users can add events to the desired date on the calendar screen, delete or change the added events.</li>
   <li>When the added event date comes, it notifies as a warning on the screen.</li>
-  # PURPOSE OF THE PROGRAM
+  
+  # PURPOSE OF THE PROGRAM<br>
   The calendar application is a tool that allows users to track time, organize appointments and events, create reminders and stay organized. Its main purpose is to facilitate time management by displaying users' daily, weekly, monthly or yearly calendars. Calendar applications are widely used in the business world as well as personal use. Provides functions such as scheduling meetings, sharing work calendars, and synchronizing employee schedules
