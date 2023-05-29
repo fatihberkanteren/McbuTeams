@@ -17,7 +17,7 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
 
  <b>Kullanıcı Kayıt Ekranı</b><br>
 <li>Şifreyi Kontrol Etmek İçin Kırmızı Okla Gösterilen Göster Butonu Kullanılır.<br> <br><img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br><br>
- <b>Kullanıcı Giriş Ekranı</b><br>
+ <b>Kullanıcı Giriş Ekranı</b><br><br>
  <li>Şifreyi Kontrol Etmek ve Sisteme Kayıt Olmak İçin Kırmızı Okla Gösterilen Göster Butonlar Kullanılır.<br><br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200"><br><br>
   <b>Etkinlik Görüntüleme Ekranı</b><br><br>
   <li>Yeni bir etkinlik oluşturmak için kırmızı okla gösterilen etkinlik oluştur butonuna basarak yeni bir etkinlik oluşturabilirsiniz.</li>
