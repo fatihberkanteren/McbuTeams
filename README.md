@@ -3,4 +3,4 @@
 # Ömer Köse 222802080
 
 #                       PROGRAMIN AKIŞI
-# <img src="resim.jpg" width="auto">
+ <img src="resim.jpg" width="auto">
