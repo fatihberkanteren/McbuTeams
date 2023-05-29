@@ -16,9 +16,9 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
 
 
  <b>Kullanıcı Kayıt Ekranı</b><br>
-<li>Şifreyi Kontrol Etmek İçin Kırmızı Okla Gösterilen Göster Butonu Kullanılır.<br> <br><img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br><br>
+<li>Şifreyi Kontrol Etmek İçin Kırmızı Okla Gösterilen Butonu Kullanılır.<br> <br><img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br><br>
  <b>Kullanıcı Giriş Ekranı</b><br><br>
- <li>Şifreyi Kontrol Etmek ve Sisteme Kayıt Olmak İçin Kırmızı Okla Gösterilen Göster Butonlar Kullanılır.<br><br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200"><br><br>
+ <li>Şifreyi Kontrol Etmek ve Sisteme Kayıt Olmak İçin Kırmızı Okla Gösterilen Butonlar Kullanılır.<br><br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200"><br><br>
   <b>Etkinlik Görüntüleme Ekranı</b><br><br>
   <li>Yeni bir etkinlik oluşturmak için kırmızı okla gösterilen etkinlik oluştur butonuna basarak yeni bir etkinlik oluşturabilirsiniz.</li>
   <li>Oluşturulan bir etkinliği silmek istiyorsanız sarı okla gösterilen kaldır butonuna basarak etkinliği silebilirsiniz.</li>
@@ -46,10 +46,10 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
   
   
 <b>User Registration Screen</b><br>
-<li>Show Button Shown With Red Arrow Is Used To Check The Password.<br> <br>
+<li>The Button Shown with Red Arrow is Used to Check the Password.<br> <br>
  <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br><br>
  <b>User Login Screen</b><br><br>
- <li>Show Buttons Shown with Red Arrows are Used to Check the Password and Register to the System.<br><br> 
+ <li>Buttons Shown with Red Arrows are Used to Check the Password and Register to the System.<br><br> 
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200"><br><br>
   <b>Event Display Screen</b><br><br>
   <li>To create a new event, you can create a new event by clicking the create event button indicated by the red arrow.</li>
