@@ -3,4 +3,4 @@
 # Ömer Köse 222802080
 
 #                       PROGRAMIN AKIŞI
- <img src="resim.jpg" width="auto">
+# <img src="C:\Users\asii_\OneDrive\Masaüstü\resim.jpg" width="auto">
