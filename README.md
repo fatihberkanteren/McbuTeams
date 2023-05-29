@@ -2,7 +2,7 @@
  Fatih Berkant Eren 222802006<br>
  Ömer Köse 222802080
 
-# <p><center>PROGRAM AKIŞI</center></p>
+# <p><center>PROGRAM AKIŞI(TR)</center></p>
 <li> Program çalıştırılır ve giriş ekranı açılır. </li>
 <li> Sisteme kaydınız yoksa giriş ekranından kaydol butonuna basıp kullanıcı kayıt ekranına yönlendirilir. </li>
 <li> Sisteme ad soyad TC kimlik no kullanıcı adı e-posta ve şifre ile kaydolunur. </li>
@@ -26,7 +26,7 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
   <li>Oluşturulan etkinlikleri mavi okla gösterilen ekrandan takip edebilirsiniz.</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/eventsPage.jpg" width="420" height="200"><br><br>
  
- # PROGRAM FLOW
+ # PROGRAM FLOW(ENG)
   <li>The program is run and the login screen opens.</li>
   <li>If you are not registered in the system, the user is directed to the registration screen by clicking the register button on the login screen.</li>
   <li>The system is registered with name, surname, TR ID number, user name, e-mail and password.</li>
