@@ -42,4 +42,24 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
   <li>When the added event date comes, it notifies as a warning on the screen.</li>
   
   # PURPOSE OF THE PROGRAM<br>
-  The calendar application is a tool that allows users to track time, organize appointments and events, create reminders and stay organized. Its main purpose is to facilitate time management by displaying users' daily, weekly, monthly or yearly calendars. Calendar applications are widely used in the business world as well as personal use. Provides functions such as scheduling meetings, sharing work calendars, and synchronizing employee schedules
+  The calendar application is a tool that allows users to track time, organize appointments and events, create reminders and stay organized. Its main purpose is to facilitate time management by displaying users' daily, weekly, monthly or yearly calendars. Calendar applications are widely used in the business world as well as personal use. Provides functions such as scheduling meetings, sharing work calendars, and synchronizing employee schedules<br><br>
+  
+  
+<b>User Registration Screen</b><br>
+<li>Show Button Shown With Red Arrow Is Used To Check The Password.<br> <br>
+ <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br><br>
+ <b>User Login Screen</b><br><br>
+ <li>Show Buttons Shown with Red Arrows are Used to Check the Password and Register to the System.<br><br> 
+  <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200"><br><br>
+  <b>Event Display Screen</b><br><br>
+  <li>To create a new event, you can create a new event by clicking the create event button indicated by the red arrow.</li>
+  <li>If you want to delete an event created, you can delete the event by pressing the remove button indicated by the yellow arrow.</li>
+  <li>If you want to edit an event created, you can update the desired event again by pressing the button indicated by the blue arrow.</li>
+  <li>Oluşturulan etkinlikleri mavi okla gösterilen ekrandan takip edebilirsiniz.</li><br>
+  <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/eventsPage.jpg" width="420" height="200"><br><br>
+  <b>Etkinlik Oluşturma Ekranı</b><br><br>
+  <li>İstenilen bilgilerin girilip etkinliğin oluşturulduğu ekran</li><br>
+  <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/createEvents.jpg" width="420" height="200"><br><br>
+  <b>Etkinlik Düzenleme Ekranı</b><br><br>
+  <li>Oluşturulan etkinliğin düzenlendiği ekran</li><br>
+  <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/editPage.jpg" width="420" height="200"><br><br>
