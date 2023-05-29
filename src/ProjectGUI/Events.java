@@ -8,17 +8,27 @@ public class Events {
     private String olayTanimlamasi;
     private String olayTipi;
     private String olayAciklamasi;
+    private String sure;
 
     public Events() {
     }
 
-    public Events(String baslik, String islemZamani, String baslamaZamani, String olayTanimlamasi, String olayTipi, String olayAciklamasi) {
+    public Events(String baslik, String islemZamani, String baslamaZamani, String olayTanimlamasi, String olayTipi, String olayAciklamasi, String sure) {
         this.baslik = baslik;
         this.islemZamani = islemZamani;
         this.baslamaZamani = baslamaZamani;
         this.olayTanimlamasi = olayTanimlamasi;
         this.olayTipi = olayTipi;
         this.olayAciklamasi = olayAciklamasi;
+        this.sure = sure;
+    }
+
+    public String getSure() {
+        return sure;
+    }
+
+    public void setSure(String sure) {
+        this.sure = sure;
     }
 
     public String getBaslik() {

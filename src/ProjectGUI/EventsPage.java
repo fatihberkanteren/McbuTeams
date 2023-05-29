@@ -54,18 +54,15 @@ public class EventsPage extends javax.swing.JFrame {
         txt_islemZamani.setEditable(false);
         txt_olayTanimlamasi.setEditable(false);
         txt_olayTipi.setEditable(false);
-        jTextArea1.setEditable(false);
-<<<<<<< HEAD
+        txt_aciklama.setEditable(false);
+        txt_sure.setEditable(false);
         btn_instagram.setBackground(color);
         btn_linkedin.setBackground(color);
         btn_github.setBackground(color);
-=======
-
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         kGradientPanel2 = new keeptoo.KGradientPanel();
@@ -73,19 +70,12 @@ public class EventsPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btn_ekilnlikolustur = new javax.swing.JButton();
         btn_duzenle = new javax.swing.JButton();
-<<<<<<< HEAD
         btn_kaldir = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         btn_instagram = new javax.swing.JButton();
         btn_linkedin = new javax.swing.JButton();
         btn_github = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-=======
-        btn_duzenle1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
         jPanel1 = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -108,10 +98,13 @@ public class EventsPage extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txt_aciklama = new javax.swing.JTextArea();
+        txt_sure = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1300, 810));
+        setFocusable(false);
+        setMinimumSize(new java.awt.Dimension(1200, 810));
         setPreferredSize(new java.awt.Dimension(1360, 900));
         setResizable(false);
 
@@ -159,7 +152,6 @@ public class EventsPage extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/4933947.jpg"))); // NOI18N
 
         btn_instagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/instagram.png"))); // NOI18N
@@ -189,39 +181,6 @@ public class EventsPage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("<html>\nSosyal Medya İkonlarına Tıkladıktan Sonra <br> \nBir Süre Bekleyiniz.");
-=======
-        jLabel3.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Yaklaşan Etkinlikler");
-
-        jTable1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Başlık", "Tarih"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setOpaque(false);
-        jScrollPane1.setViewportView(jTable1);
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -230,7 +189,7 @@ public class EventsPage extends javax.swing.JFrame {
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_duzenle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -239,72 +198,42 @@ public class EventsPage extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel2Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_instagram, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(25, 25, 25)
                                 .addComponent(btn_linkedin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(25, 25, 25)
                                 .addComponent(btn_github, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
-<<<<<<< HEAD
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-=======
-                        .addGap(97, 97, 97))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btn_duzenle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_ekilnlikolustur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_duzenle1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGap(30, 30, 30)
-=======
-                .addGap(29, 29, 29)
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-<<<<<<< HEAD
-                .addGap(120, 120, 120)
-=======
-                .addGap(55, 55, 55)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_ekilnlikolustur, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_duzenle, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_kaldir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-<<<<<<< HEAD
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_instagram)
                     .addComponent(btn_linkedin)
                     .addComponent(btn_github))
-                .addContainerGap())
-=======
-                .addComponent(btn_duzenle1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -319,14 +248,14 @@ public class EventsPage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Başlık", "İşlem Zamanı", "Başlama Zamanı", "Olay Tanımlaması", "Olay Tipi", "Olay Açıklaması"
+                "Başlık", "İşlem Zamanı", "Başlama Zamanı", "Olay Tanımlaması", "Olay Tipi", "Süre", "Olay Açıklaması"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -366,14 +295,11 @@ public class EventsPage extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Yenile");
         jButton1.setBorder(null);
-<<<<<<< HEAD
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-=======
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -406,14 +332,10 @@ public class EventsPage extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-<<<<<<< HEAD
-        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 1040, 550));
-=======
-        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 980, 550));
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 1040, 560));
 
         kGradientPanel3.setkEndColor(new java.awt.Color(116, 235, 213));
         kGradientPanel3.setkStartColor(new java.awt.Color(159, 172, 230));
@@ -471,12 +393,21 @@ public class EventsPage extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Açıklama");
 
-        jTextArea1.setColumns(10);
-        jTextArea1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jTextArea1.setRows(3);
-        jTextArea1.setTabSize(5);
-        jTextArea1.setOpaque(false);
-        jScrollPane2.setViewportView(jTextArea1);
+        txt_aciklama.setColumns(10);
+        txt_aciklama.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        txt_aciklama.setRows(3);
+        txt_aciklama.setTabSize(5);
+        txt_aciklama.setOpaque(false);
+        jScrollPane2.setViewportView(txt_aciklama);
+
+        txt_sure.setBackground(new java.awt.Color(255, 255, 255));
+        txt_sure.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        txt_sure.setForeground(new java.awt.Color(0, 0, 0));
+        txt_sure.setOpaque(false);
+
+        jLabel14.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Süresi");
 
         javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
         kGradientPanel3.setLayout(kGradientPanel3Layout);
@@ -507,42 +438,40 @@ public class EventsPage extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel12)
-                                    .addComponent(jLabel9)
-                                    .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
-<<<<<<< HEAD
-                        .addGap(0, 332, Short.MAX_VALUE)))
-=======
-                        .addGap(0, 272, Short.MAX_VALUE)))
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+                                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel9))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel14)
+                                            .addComponent(txt_sure, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(0, 98, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         kGradientPanel3Layout.setVerticalGroup(
             kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-<<<<<<< HEAD
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_islemZamani)
-                            .addComponent(txt_baslik))))
-=======
-                .addGap(8, 8, 8)
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_baslik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_islemZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+                            .addComponent(txt_baslik)))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_sure, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -551,22 +480,13 @@ public class EventsPage extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-<<<<<<< HEAD
                         .addComponent(txt_olayTipi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt_baslamaZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                        .addComponent(txt_olayTipi, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_baslamaZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
-<<<<<<< HEAD
         jPanel1.add(kGradientPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1040, 240));
-=======
-        jPanel1.add(kGradientPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 980, 240));
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -575,23 +495,19 @@ public class EventsPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< HEAD
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE))
-=======
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1042, Short.MAX_VALUE))
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents
 
     /**
      * @return ArrayLiist
@@ -614,7 +530,8 @@ public class EventsPage extends javax.swing.JFrame {
                         resultset.getString("baslamaZamani"),
                         resultset.getString("olayTanimlamasi"),
                         resultset.getString("olayTipi"),
-                        resultset.getString("olayAciklamasi")));
+                        resultset.getString("olayAciklamasi"),
+                        resultset.getString("sure")));
             }
         } catch (SQLException e) {
             System.out.println("Hata Kodu : " + e.getErrorCode());
@@ -636,18 +553,17 @@ public class EventsPage extends javax.swing.JFrame {
             ArrayList<Events> events = getEvents();
             for (Events event : events) {
                 Object row[] = {event.getBaslik(), event.getIslemZamani(), event.getBaslamaZamani(), event.getOlayTanimlamasi(),
-                    event.getOlayTipi(), event.getOlayAciklamasi()};
+                    event.getOlayTipi(), event.getSure(), event.getOlayAciklamasi()};
                 defaultTableModel.addRow(row);
             }
         } catch (SQLException e) {
         }
     }
 
-    private void btn_ekilnlikolusturActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void btn_ekilnlikolusturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ekilnlikolusturActionPerformed
         createEvent.setVisible(true);
-    }                                                   
+    }//GEN-LAST:event_btn_ekilnlikolusturActionPerformed
 
-<<<<<<< HEAD
     private void btn_duzenleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_duzenleActionPerformed
         editPage = new EditPage();
         int selectedRow = tbl_events.getSelectedRow();
@@ -659,7 +575,7 @@ public class EventsPage extends javax.swing.JFrame {
                 Object value = tbl_events.getValueAt(selectedRow, i);
                 arrayList.add(String.valueOf(value));
             }
-            editPage.setİnfo(arrayList.get(0), arrayList.get(4), arrayList.get(5));
+            editPage.setİnfo(arrayList.get(0), arrayList.get(4), arrayList.get(5), arrayList.get(6));
         } else {
             JOptionPane.showMessageDialog(null, "Düzenlemek istediğiniz etkinliği seçiniz!");
         }
@@ -668,9 +584,6 @@ public class EventsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_duzenleActionPerformed
 
     private void btn_kaldirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kaldirActionPerformed
-=======
-    private void btn_duzenleActionPerformed(java.awt.event.ActionEvent evt) {                                            
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
         int selectedRow = tbl_events.getSelectedRow();
         arrayList = new ArrayList<>();
         if (selectedRow != -1) {
@@ -682,7 +595,7 @@ public class EventsPage extends javax.swing.JFrame {
             try {
                 connection = DbHelper.dbEvents();
                 String sql = "DELETE FROM Events WHERE baslik = ? AND islemZamani = ? AND baslamaZamani = ? "
-                        + "AND olayTanimlamasi = ? AND olayTipi = ? AND olayAciklamasi = ?";
+                        + "AND olayTanimlamasi = ? AND olayTipi = ? AND sure = ? AND olayAciklamasi = ?";
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, arrayList.get(0));
                 preparedStatement.setString(2, arrayList.get(1));
@@ -690,6 +603,7 @@ public class EventsPage extends javax.swing.JFrame {
                 preparedStatement.setString(4, arrayList.get(3));
                 preparedStatement.setString(5, arrayList.get(4));
                 preparedStatement.setString(6, arrayList.get(5));
+                preparedStatement.setString(7, arrayList.get(6));
                 preparedStatement.execute();
 
             } catch (SQLException e) {
@@ -705,21 +619,11 @@ public class EventsPage extends javax.swing.JFrame {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Düzenlemek istediğiniz etkinliği seçiniz!");
+            JOptionPane.showMessageDialog(null, "Kaldırmak istediğiniz etkinliği seçiniz!");
         }
-<<<<<<< HEAD
     }//GEN-LAST:event_btn_kaldirActionPerformed
-=======
 
-
-    }                                           
-
-    private void btn_duzenle1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-    }                                            
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
-
-    private void tbl_eventsMouseClicked(java.awt.event.MouseEvent evt) {                                        
+    private void tbl_eventsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_eventsMouseClicked
         int selectedRow = tbl_events.getSelectedRow();
         arrayList = new ArrayList<>();
         if (selectedRow != -1) {
@@ -736,19 +640,10 @@ public class EventsPage extends javax.swing.JFrame {
         txt_baslamaZamani.setText(arrayList.get(2));
         txt_olayTanimlamasi.setText(arrayList.get(3));
         txt_olayTipi.setText(arrayList.get(4));
-        jTextArea1.setText(arrayList.get(5));
-<<<<<<< HEAD
-    }//GEN-LAST:event_tbl_eventsMouseClicked
-=======
-    }                                       
+        txt_sure.setText(arrayList.get(5));
+        txt_aciklama.setText(arrayList.get(6));
 
-    private void txt_aramaCubuguKeyReleased(java.awt.event.KeyEvent evt) {                                            
-        String aranan = txt_aramaCubugu.getText();
-        TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<>(defaultTableModel);
-        tbl_events.setRowSorter(rowSorter);
-        rowSorter.setRowFilter(RowFilter.regexFilter(aranan));
-    }                                           
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+    }//GEN-LAST:event_tbl_eventsMouseClicked
 
     private void txt_aramaCubuguKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_aramaCubuguKeyReleased
         String aranan = txt_aramaCubugu.getText();
@@ -767,7 +662,7 @@ public class EventsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_instagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_instagramActionPerformed
-        String instagramProfileUrl = "https://www.instagram.com/fatihberkant";
+        String instagramProfileUrl = "https://www.instagram.com/fatihberkant/";
         try {
             Desktop.getDesktop().browse(new URI(instagramProfileUrl));
         } catch (IOException | URISyntaxException e) {
@@ -775,7 +670,7 @@ public class EventsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_instagramActionPerformed
 
     private void btn_githubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_githubActionPerformed
-        String githubProfileUrl = "https://github.com/fatihberkanteren";
+        String githubProfileUrl = "https://github.com/fatihberkanteren/";
         try {
             Desktop.getDesktop().browse(new URI(githubProfileUrl));
         } catch (IOException | URISyntaxException e) {
@@ -783,7 +678,7 @@ public class EventsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_githubActionPerformed
 
     private void btn_linkedinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_linkedinActionPerformed
-        String linkedinProfileUrl = "https://www.linkedin.com/in/fatihberkanteren";
+        String linkedinProfileUrl = "https://www.linkedin.com/in/fatihberkanteren/";
         try {
             Desktop.getDesktop().browse(new URI(linkedinProfileUrl));
         } catch (IOException | URISyntaxException e) {
@@ -825,7 +720,7 @@ public class EventsPage extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_duzenle;
     private javax.swing.JButton btn_ekilnlikolustur;
     private javax.swing.JButton btn_github;
@@ -837,10 +732,8 @@ public class EventsPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel13;
-=======
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -850,29 +743,19 @@ public class EventsPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-<<<<<<< HEAD
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-=======
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
-    private javax.swing.JTextArea jTextArea1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
     private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JTable tbl_events;
+    private javax.swing.JTextArea txt_aciklama;
     private javax.swing.JTextField txt_aramaCubugu;
     private javax.swing.JTextField txt_baslamaZamani;
     private javax.swing.JTextField txt_baslik;
     private javax.swing.JTextField txt_islemZamani;
     private javax.swing.JTextField txt_olayTanimlamasi;
     private javax.swing.JTextField txt_olayTipi;
-<<<<<<< HEAD
+    private javax.swing.JTextField txt_sure;
     // End of variables declaration//GEN-END:variables
-=======
-    // End of variables declaration                   
->>>>>>> 0339eb64e219973295fb05a3f8ac8c6d1770c40e
 }

@@ -21,14 +21,31 @@ public class Register extends javax.swing.JFrame {
     PreparedStatement preparedStatement;
     ResultSet resultSet;
     LoginPage loginPage = new LoginPage();
+    Color transparentColor = new Color(0, 0, 0, 0);
 
     public Register() {
         initComponents();
         this.setIconImage(icon.getImage());
-        Color transparentColor = new Color(0, 0, 0, 0);
+        cmb_kullaniciTipi.setBackground(transparentColor);
         btn_geri.setBackground(transparentColor);
     }
-    
+
+    private boolean checkTC() {
+        boolean isOkey;
+        String tcNo = txt_tcNo.getText();
+        if (tcNo.length() != 11) {
+            isOkey = false;
+        } else {
+            int toplam = 0;
+            for (int i = 0; i < tcNo.length() - 1; i++) {
+                toplam += Integer.parseInt(String.valueOf(tcNo.charAt(i)));
+            }
+
+            isOkey = toplam % 10 == Integer.parseInt(String.valueOf(tcNo.charAt(10)));
+        }
+        return isOkey;
+    }
+
     /**
      * @param comboBox
      */
@@ -50,7 +67,7 @@ public class Register extends javax.swing.JFrame {
                 preparedStatement.setString(9, "Admin");
             } else if (comboBox.getSelectedIndex() == 2) {
                 preparedStatement.setString(9, "Kullanici");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Kullanıcı Tipi Seçiniz.");
             }
             preparedStatement.execute();
@@ -149,7 +166,7 @@ public class Register extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Tc No");
+        jLabel7.setText("T.C. Kimlik Numarası");
 
         txt_tcNo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txt_tcNo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
@@ -185,6 +202,7 @@ public class Register extends javax.swing.JFrame {
 
         cmb_kullaniciTipi.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         cmb_kullaniciTipi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seçiniz", "Yönetici", "Normal Kullanıcı" }));
+        cmb_kullaniciTipi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
         cmb_kullaniciTipi.setOpaque(false);
 
         chck_göster.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -251,7 +269,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -290,7 +308,7 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(cmb_kullaniciTipi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(btn_kayıtOl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -372,7 +390,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_chck_gösterActionPerformed
     /**
      * @return true or false
-     * 
+     *
      */
     public boolean isOkey() {
         boolean isFull = true;
@@ -385,8 +403,8 @@ public class Register extends javax.swing.JFrame {
     }
 
     /**
-     * @return true or false
-     * Bu metot kullanıcı tipinin seçilip seçilmediği kontrolünü yapıyor
+     * @return true or false Bu metot kullanıcı tipinin seçilip seçilmediği
+     * kontrolünü yapıyor
      */
     public boolean isSelectedType() {
         boolean isTrue;
@@ -395,7 +413,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     private void btn_kayıtOlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kayıtOlActionPerformed
-        if (isSelectedType() == true && isOkey() == true) {
+        if (isSelectedType() == true && isOkey() == true && checkTC() == true) {
             veritabanınaEkle(cmb_kullaniciTipi);
             int choice = JOptionPane.showOptionDialog(null, "Kayıt Başarılı. Giriş Sayfasına Yönlendiriliyorsunuz.", "Bilgilendirme", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
             if (choice == JOptionPane.OK_OPTION) {
@@ -403,7 +421,12 @@ public class Register extends javax.swing.JFrame {
                 loginPage.setVisible(true);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Lütfen ilgili alanların tamamını doldurunuz !");
+            if (checkTC() == false) {
+                JOptionPane.showMessageDialog(null, "Lütfen geçerli bir TC Kimlik Numarası Giriniz!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Lütfen ilgili alanların tamamını doldurunuz !");
+            }
+
         }
     }//GEN-LAST:event_btn_kayıtOlActionPerformed
 
