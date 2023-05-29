@@ -16,7 +16,11 @@
 <li>Şifreyi Kontrol Etmek İçin Kırmızı Okla Gösterilen Göster Butonu Kullanılır.<br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br><br>
  <b>Kullanıcı Giriş Ekranı</b><br>
  <li>Şifreyi Kontrol Etmek ve Sisteme Kayıt Olmak İçin Kırmızı Okla Gösterilen Göster Butonlar Kullanılır.<br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200"><br><br>
-
+  <b>Etkinlik Görüntüleme Eklme Silme ve Değiştirme Ekranı</b><br>
+  <li>Yeni bir etkinlik oluşturmak için kırmızı okla gösterilen etkinlik oluştur butonuna basarak yeni bir etkinlik oluşturabilirsiniz.</li>
+  <li>Oluşturulan bir etkinliği silmek istiyorsanız sarı okla gösterilen kaldır butonuna basarak etkinliği silebilirsiniz.</li>
+  <li>Oluşturulan bir etkinlikte düzenleme yapmak istiyorsanız mavi okla gösterilen butona basarak istediğiniz etkinliği tekrardan güncelleyebilirsiniz.</li>
+  <li>Oluşturulan etkinlikleri mavi okla gösterilen ekrandan takip edebilirsiniz.</li>
   # PROGRAM FLOW
   <li>The program is run and the login screen opens.</li>
   <li>If you are not registered in the system, the user is directed to the registration screen by clicking the register button on the login screen.</li>
