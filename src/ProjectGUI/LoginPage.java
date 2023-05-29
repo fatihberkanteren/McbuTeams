@@ -1,10 +1,16 @@
 
 package ProjectGUI;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -20,7 +26,6 @@ public class LoginPage extends javax.swing.JFrame {
     ResultSet resultSet;
     Kullanicilar kullanici = new Kullanicilar();
     EventsPage eventsPage = new EventsPage();
-
     
     /**
      * Creates new form LoginPage
@@ -28,6 +33,8 @@ public class LoginPage extends javax.swing.JFrame {
     public LoginPage() {
         initComponents();
         this.setIconImage(icon.getImage());
+        this.setTitle("Giriş Yap | Kayıt Ol");
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -243,6 +250,7 @@ public class LoginPage extends javax.swing.JFrame {
     
     private void btn_girisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_girisActionPerformed
         try {
+            int sayac = 0;
             connection = DbHelper.dbAdmin();
             String sql = "SELECT * FROM Admin WHERE userName = ? AND password = ?";
             preparedStatement = connection.prepareStatement(sql);
@@ -252,10 +260,17 @@ public class LoginPage extends javax.swing.JFrame {
             while (resultSet.next()) {
                 this.setVisible(false);
                 eventsPage.setVisible(true);
+                if (sayac == 0) {
+                    eventsPage.bildir();
+                    sayac++;
+                }
+                
             }
         } catch (SQLException e) {
             System.out.println("Hata Mesajı : " + e.getMessage());
             System.out.println("Hata Kodu : " + e.getErrorCode());
+        } catch (IOException ex) {
+            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 connection.close();

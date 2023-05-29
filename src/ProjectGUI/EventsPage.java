@@ -3,7 +3,11 @@ package ProjectGUI;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.HeadlessException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -11,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +24,6 @@ import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-
 /**
  *
  * @author Fatih Berkant EREN
@@ -38,6 +42,8 @@ public class EventsPage extends javax.swing.JFrame {
     PreparedStatement preparedStatement;
     ResultSet resultSet;
     Color color = new Color(0, 0, 0, 0);
+    EventsPage eventsPage;
+    boolean isThere = false;
 
     public EventsPage() {
         initComponents();
@@ -60,6 +66,51 @@ public class EventsPage extends javax.swing.JFrame {
         btn_linkedin.setBackground(color);
         btn_github.setBackground(color);
     }
+
+    public void bildir() throws IOException {
+        checkEvents(getPlusDay());
+    }
+    
+    public String getPlusDay() {
+        String localDate = String.valueOf(LocalDate.now());
+        String[] date;
+        date = localDate.split("-");
+        String localDatePlus = "";
+        for (int i = date.length - 1; i >= 0; i--) {
+            if (i == 2 || i == 1) {
+                localDatePlus += date[i] + ".";
+            } else {
+                localDatePlus += date[i];
+            }
+        }
+        return localDatePlus;
+    }
+
+    private void checkEvents(String plusDay) {
+        int sayac = 0;
+        try {
+            connection = DbHelper.dbEvents();
+            String sql = "SELECT * FROM Events Where olayTanimlamasi = ? OR olayTanimlamasi = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, String.valueOf(plusDay));
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                isThere = true;
+                sayac++;
+            }
+        } catch (HeadlessException | SQLException e) {
+        } finally {
+            try {
+                connection.close();
+                if (isThere == true) {
+                    java.awt.Toolkit.getDefaultToolkit().beep();
+                    JOptionPane.showMessageDialog(eventsPage, "Yaklaşan "+sayac+" Adet Etkinliğiniz Bulunmaktadır. Lütfen Kontrol Ediniz.","Bilgilendirme",JOptionPane.WARNING_MESSAGE);
+                }
+            } catch (SQLException e) {
+            }
+        }
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -104,8 +155,8 @@ public class EventsPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
-        setMinimumSize(new java.awt.Dimension(1200, 810));
-        setPreferredSize(new java.awt.Dimension(1360, 900));
+        setMinimumSize(new java.awt.Dimension(1350, 850));
+        setPreferredSize(new java.awt.Dimension(1350, 850));
         setResizable(false);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -198,7 +249,7 @@ public class EventsPage extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(46, 46, 46)
                                 .addComponent(btn_instagram, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(25, 25, 25)
                                 .addComponent(btn_linkedin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -323,7 +374,7 @@ public class EventsPage extends javax.swing.JFrame {
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -331,8 +382,8 @@ public class EventsPage extends javax.swing.JFrame {
                     .addComponent(txt_aramaCubugu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 1040, 560));
@@ -417,14 +468,7 @@ public class EventsPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addComponent(txt_olayTipi, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_baslamaZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2))
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(kGradientPanel3Layout.createSequentialGroup()
                                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_baslik, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -434,44 +478,61 @@ public class EventsPage extends javax.swing.JFrame {
                                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_islemZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8)
-                                    .addComponent(jLabel11))
-                                .addGap(18, 18, 18)
+                                    .addComponent(jLabel11)))
+                            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_olayTipi, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(kGradientPanel3Layout.createSequentialGroup()
                                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel12)
                                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
                                         .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_baslamaZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel9))
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel14)
-                                            .addComponent(txt_sure, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 98, Short.MAX_VALUE)))
+                                            .addComponent(txt_sure, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 104, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2)))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         kGradientPanel3Layout.setVerticalGroup(
             kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_islemZamani)
-                            .addComponent(txt_baslik)))
+                            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel9)
+                                .addGap(2, 2, 2)))
+                        .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                            .addGap(59, 59, 59)
+                            .addComponent(jLabel8)
+                            .addGap(2, 2, 2)))
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_sure, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel7)
+                        .addGap(2, 2, 2)))
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txt_baslik, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txt_islemZamani, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                        .addComponent(txt_baslamaZamani)
+                        .addComponent(txt_sure)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -480,8 +541,8 @@ public class EventsPage extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_olayTipi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_baslamaZamani, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_olayTipi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_olayTanimlamasi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -562,6 +623,7 @@ public class EventsPage extends javax.swing.JFrame {
 
     private void btn_ekilnlikolusturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ekilnlikolusturActionPerformed
         createEvent.setVisible(true);
+        setEvents();
     }//GEN-LAST:event_btn_ekilnlikolusturActionPerformed
 
     private void btn_duzenleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_duzenleActionPerformed
@@ -576,6 +638,7 @@ public class EventsPage extends javax.swing.JFrame {
                 arrayList.add(String.valueOf(value));
             }
             editPage.setİnfo(arrayList.get(0), arrayList.get(4), arrayList.get(5), arrayList.get(6));
+            setEvents();
         } else {
             JOptionPane.showMessageDialog(null, "Düzenlemek istediğiniz etkinliği seçiniz!");
         }
@@ -612,7 +675,8 @@ public class EventsPage extends javax.swing.JFrame {
             } finally {
                 try {
                     connection.close();
-                    System.out.println("Başarılı");
+                    JOptionPane.showMessageDialog(eventsPage, "Kaldırma İşlemi Başarılı","Bilgilendirme",JOptionPane.INFORMATION_MESSAGE);
+                    setEvents();
                 } catch (SQLException e) {
                     System.out.println("Hata Kodu : " + e.getErrorCode());
                     System.out.println("Hata Mesajı : " + e.getMessage());
@@ -716,6 +780,7 @@ public class EventsPage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new EventsPage().setVisible(true);
+
             }
         });
     }

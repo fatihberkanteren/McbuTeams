@@ -28,6 +28,7 @@ public class Register extends javax.swing.JFrame {
         this.setIconImage(icon.getImage());
         cmb_kullaniciTipi.setBackground(transparentColor);
         btn_geri.setBackground(transparentColor);
+        this.setTitle("Kayıt Ol");
     }
 
     private boolean checkTC() {
