@@ -3,4 +3,4 @@
 # Ömer Köse 222802080
 
 #                       PROGRAMIN AKIŞI
-# <img src="[C:\Users\asii_\OneDrive\Masaüstü\resim.jpg](https://drive.google.com/drive/my-drive)" width="320" height="180">
+# <img src="file:///C:/Users/asii_/OneDrive/Masa%C3%BCst%C3%BC/resim.jpg" width="320" height="180">
