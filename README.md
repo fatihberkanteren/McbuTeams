@@ -12,10 +12,10 @@
 <li> Eklenen olay tarihi geldiğinde ekranda uyarı olarak bildirir.  </li>
 
 
-
-
 # Kullanıcı Kayıt Ekranı
 <li>Şifreyi Kontrol Etmek İçin Kırmızı Okla Gösterilen Göster Butonu Kullanılır.<br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200">
+# Kullanıcı Giriş Ekranı
+ 
 
   # PROGRAM FLOW
   <li>The program is run and the login screen opens.</li>
