@@ -25,7 +25,8 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
   <li>Oluşturulan bir etkinlikte düzenleme yapmak istiyorsanız mavi okla gösterilen butona basarak istediğiniz etkinliği tekrardan güncelleyebilirsiniz.</li>
   <li>Oluşturulan etkinlikleri mavi okla gösterilen ekrandan takip edebilirsiniz.</li>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/eventsPage.jpg" width="420" height="200"><br><br>
-  # PROGRAM FLOW
+ 
+ # PROGRAM FLOW
   <li>The program is run and the login screen opens.</li>
   <li>If you are not registered in the system, the user is directed to the registration screen by clicking the register button on the login screen.</li>
   <li>The system is registered with name, surname, TR ID number, user name, e-mail and password.</li>
