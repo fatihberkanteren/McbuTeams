@@ -26,8 +26,11 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
   <li>Oluşturulan etkinlikleri mavi okla gösterilen ekrandan takip edebilirsiniz.</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/eventsPage.jpg" width="420" height="200"><br><br>
   <b>Etkinlik Oluşturma Ekranı</b><br>
-  <li>İstenilen bilgilerin girilip etkinliğin oluşturulduğu sayfa</li><br>
-  <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/eventsPage.jpg" width="420" height="200"><br><br>
+  <li>İstenilen bilgilerin girilip etkinliğin oluşturulduğu ekran</li><br>
+  <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/createEvents.jpg" width="420" height="200"><br><br>
+  <b>Etkinlik Düzenleme Ekranı</b><br>
+  <li>Oluşturulan etkinliğin düzenlendiği ekran</li><br>
+  <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/createEvents.jpg" width="420" height="200"><br><br>
  
  # PROGRAM FLOW(ENG)
   <li>The program is run and the login screen opens.</li>
