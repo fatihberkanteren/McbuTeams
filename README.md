@@ -19,16 +19,16 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
 <li>Şifreyi Kontrol Etmek İçin Kırmızı Okla Gösterilen Göster Butonu Kullanılır.<br> <br><img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="420" height="200"><br><br>
  <b>Kullanıcı Giriş Ekranı</b><br>
  <li>Şifreyi Kontrol Etmek ve Sisteme Kayıt Olmak İçin Kırmızı Okla Gösterilen Göster Butonlar Kullanılır.<br><br> <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/loginPage.jpg" width="420" height="200"><br><br>
-  <b>Etkinlik Görüntüleme Ekranı</b><br>
+  <b>Etkinlik Görüntüleme Ekranı</b><br><br>
   <li>Yeni bir etkinlik oluşturmak için kırmızı okla gösterilen etkinlik oluştur butonuna basarak yeni bir etkinlik oluşturabilirsiniz.</li>
   <li>Oluşturulan bir etkinliği silmek istiyorsanız sarı okla gösterilen kaldır butonuna basarak etkinliği silebilirsiniz.</li>
   <li>Oluşturulan bir etkinlikte düzenleme yapmak istiyorsanız mavi okla gösterilen butona basarak istediğiniz etkinliği tekrardan güncelleyebilirsiniz.</li>
   <li>Oluşturulan etkinlikleri mavi okla gösterilen ekrandan takip edebilirsiniz.</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/eventsPage.jpg" width="420" height="200"><br><br>
-  <b>Etkinlik Oluşturma Ekranı</b><br>
+  <b>Etkinlik Oluşturma Ekranı</b><br><br>
   <li>İstenilen bilgilerin girilip etkinliğin oluşturulduğu ekran</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/createEvents.jpg" width="420" height="200"><br><br>
-  <b>Etkinlik Düzenleme Ekranı</b><br>
+  <b>Etkinlik Düzenleme Ekranı</b><br><br>
   <li>Oluşturulan etkinliğin düzenlendiği ekran</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/editPage.jpg" width="420" height="200"><br><br>
  
