@@ -1,6 +1,6 @@
 # McbuTeams
  Fatih Berkant Eren 222802006<br>
- Ömer Köse 222802080
+ Ömer Köse 222802080 
 
 # <p><center>PROGRAM AKIŞI(TR)</center></p>
 <li> Program çalıştırılır ve giriş ekranı açılır. </li>
