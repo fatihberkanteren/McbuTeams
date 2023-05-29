@@ -60,6 +60,6 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
   <b>Event Creation Screen</b><br><br>
   <li>The screen where the desired information is entered and the event is created</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/createEvents.jpg" width="420" height="200"><br><br>
-  <b>Etkinlik Düzenleme Ekranı</b><br><br>
-  <li>Oluşturulan etkinliğin düzenlendiği ekran</li><br>
+  <b>Event Editing Screen</b><br><br>
+  <li>The screen where the created event is edited</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/editPage.jpg" width="420" height="200"><br><br>
