@@ -1,5 +1,5 @@
 # McbuTeams
- Fatih Berkant Eren 222802006
+ Fatih Berkant Eren 222802006<br>
  Ömer Köse 222802080
 
 #                       PROGRAMIN AKIŞI
