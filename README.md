@@ -55,10 +55,10 @@ Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri 
   <li>To create a new event, you can create a new event by clicking the create event button indicated by the red arrow.</li>
   <li>If you want to delete an event created, you can delete the event by pressing the remove button indicated by the yellow arrow.</li>
   <li>If you want to edit an event created, you can update the desired event again by pressing the button indicated by the blue arrow.</li>
-  <li>Oluşturulan etkinlikleri mavi okla gösterilen ekrandan takip edebilirsiniz.</li><br>
+  <li>You can follow the created events on the screen indicated by the blue arrow.</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/eventsPage.jpg" width="420" height="200"><br><br>
-  <b>Etkinlik Oluşturma Ekranı</b><br><br>
-  <li>İstenilen bilgilerin girilip etkinliğin oluşturulduğu ekran</li><br>
+  <b>Event Creation Screen</b><br><br>
+  <li>The screen where the desired information is entered and the event is created</li><br>
   <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/createEvents.jpg" width="420" height="200"><br><br>
   <b>Etkinlik Düzenleme Ekranı</b><br><br>
   <li>Oluşturulan etkinliğin düzenlendiği ekran</li><br>
