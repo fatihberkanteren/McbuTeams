@@ -10,7 +10,7 @@
 <li> Kaydı bulunan veya kayıt işlemini gerçekleştiren kullanıcılar giriş ekranında kullanıcı adını ve şifresini girerek takvim ekranınan yönlendirilir. </li>
 <li> Kullanıcılar takvim ekranında istedikleri tarihe olay ekleyebilir eklenen olayları silebilir veya değiştirebilir. </li>
 <li> Eklenen olay tarihi geldiğinde ekranda uyarı olarak bildirir.  </li><br><br>
-# PROGRAMIN AMACI
+#  PROGRAMIN AMACI <br>
 Takvim uygulaması, kullanıcılara zamanı takip etme, randevu ve etkinlikleri düzenleme, hatırlatmalar oluşturma ve organize olma imkanı sağlayan bir araçtır. Temel amacı, kullanıcıların günlük, haftalık, aylık veya yıllık takvimlerini göstererek zaman yönetimlerini kolaylaştırmaktır.Takvim uygulamaları, kişisel kullanımın yanı sıra iş dünyasında da yaygın olarak kullanılır. Toplantıları planlamak, iş takvimlerini paylaşmak ve çalışanların programlarını senkronize etmek gibi işlevler sağlar.<br><br>
 
 
