@@ -15,7 +15,7 @@
 
 
 
-# <img src="[C:\Users\asii_\Downloads\registerPage.jpg](https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg)" width="320" height="180">
+# <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/registerPage.jpg" width="320" height="180">
 
   # PROGRAM FLOW
   <li>The program is run and the login screen opens.</li>
