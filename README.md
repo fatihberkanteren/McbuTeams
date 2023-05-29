@@ -3,4 +3,4 @@
 # Ömer Köse 222802080
 
 #                       PROGRAMIN AKIŞI
-# <img src="file:///C:/Users/asii_/OneDrive/Masa%C3%BCst%C3%BC/resim.jpg" width="320" height="180">
+# <img src="https://github.com/fatihberkanteren/McbuTeams/blob/main/resim.jpg" width="320" height="180">
