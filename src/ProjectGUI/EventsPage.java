@@ -4,10 +4,7 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.HeadlessException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -24,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author Fatih Berkant EREN
@@ -68,10 +66,13 @@ public class EventsPage extends javax.swing.JFrame {
     }
 
     public void bildir() throws IOException {
-        checkEvents(getPlusDay());
+        checkEvents(getDay());
     }
-    
-    public String getPlusDay() {
+
+    /**
+     * @return Programa girildiğindeki tarihi dönderir.
+     */
+    public String getDay() {
         String localDate = String.valueOf(LocalDate.now());
         String[] date;
         date = localDate.split("-");
@@ -104,13 +105,12 @@ public class EventsPage extends javax.swing.JFrame {
                 connection.close();
                 if (isThere == true) {
                     java.awt.Toolkit.getDefaultToolkit().beep();
-                    JOptionPane.showMessageDialog(eventsPage, "Yaklaşan "+sayac+" Adet Etkinliğiniz Bulunmaktadır. Lütfen Kontrol Ediniz.","Bilgilendirme",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(eventsPage, "Yaklaşan " + sayac + " Adet Etkinliğiniz Bulunmaktadır. Lütfen Kontrol Ediniz.", "Bilgilendirme", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (SQLException e) {
             }
         }
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -604,9 +604,6 @@ public class EventsPage extends javax.swing.JFrame {
         return events;
     }
 
-    /**
-     *
-     */
     public void setEvents() {
         defaultTableModel = (DefaultTableModel) tbl_events.getModel();
         defaultTableModel.setRowCount(0);
@@ -675,7 +672,7 @@ public class EventsPage extends javax.swing.JFrame {
             } finally {
                 try {
                     connection.close();
-                    JOptionPane.showMessageDialog(eventsPage, "Kaldırma İşlemi Başarılı","Bilgilendirme",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(eventsPage, "Kaldırma İşlemi Başarılı", "Bilgilendirme", JOptionPane.INFORMATION_MESSAGE);
                     setEvents();
                 } catch (SQLException e) {
                     System.out.println("Hata Kodu : " + e.getErrorCode());
